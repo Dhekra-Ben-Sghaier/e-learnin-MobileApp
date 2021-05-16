@@ -2,6 +2,7 @@ package com.mycompany.myapp;
 
 
 import com.codename1.components.MultiButton;
+import com.codename1.components.SpanLabel;
 import static com.codename1.ui.CN.*;
 import com.codename1.ui.Display;
 import com.codename1.ui.Form;
@@ -14,9 +15,30 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
+import com.codename1.io.Preferences;
+import com.codename1.ui.Button;
+import com.codename1.ui.Command;
+import com.codename1.ui.Component;
 import com.codename1.ui.Container;
+import com.codename1.ui.FontImage;
+import com.codename1.ui.Graphics;
+import com.codename1.ui.Image;
+import com.codename1.ui.animations.CommonTransitions;
+import com.codename1.ui.animations.ComponentAnimation;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.layouts.BorderLayout;
+import com.codename1.ui.layouts.GridLayout;
+import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Border;
 import entity.Formation;
+
+
+import gui.Inscription;
+
+import gui.SignUpApp;
+import gui.SignUpForm;
+import gui.SignUpSoc;
+
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import services.ServiceFormation;
@@ -31,12 +53,13 @@ public class MyApplication {
     private Resources theme;
      private ArrayList<Formation> list;
        private long lastScroll;
-    
+        
+
     public void init(Object context) {
         // use two network threads instead of one
         updateNetworkThreadCount(2);
-
-        theme = UIManager.initFirstTheme("/theme");
+       
+        theme = UIManager.initFirstTheme("/theme_1");
 
         // Enable Toolbar on all Forms by default
         Toolbar.setGlobalToolbar(true);
@@ -60,26 +83,29 @@ public class MyApplication {
             current.show();
             return;
         }
-         Form hi = new Form("Hi World", BoxLayout.y());
-         list = new ArrayList<>();
-        Container c = new Container(BoxLayout.y());
-        hi.addPointerDraggedListener(e -> lastScroll = System.currentTimeMillis());
+        new Inscription(theme).show();
        
-        
-        hi.setScrollableY(true);
-        c.setScrollableY(true);
-        c.getStyle().setBorder(Border.createLineBorder(2));
-      
-               
-        list.addAll(ServiceFormation.getInstance().getAllTasks());
-        System.out.println("liiist"+ServiceFormation.getInstance().getAllTasks());
-        
-         for (Formation t : list) {
-  System.out.println("liiist"+list);
-            MultiButton mb = new MultiButton(""+t.getId());
-            Label l = new Label(""+t.getId());
-         }
-         hi.show();
+//         Form hi = new Form("Hi World", BoxLayout.y());
+//         list = new ArrayList<>();
+//        Container c = new Container(BoxLayout.y());
+//        hi.addPointerDraggedListener(e -> lastScroll = System.currentTimeMillis());
+//       
+//        
+//        hi.setScrollableY(true);
+//        c.setScrollableY(true);
+//        c.getStyle().setBorder(Border.createLineBorder(2));
+//      
+//               
+//        list.addAll(ServiceFormation.getInstance().getAllTasks());
+//        System.out.println("liiist"+ServiceFormation.getInstance().getAllTasks());
+//        
+//         for (Formation t : list) {
+//  System.out.println("liiist"+list);
+//            MultiButton mb = new MultiButton(""+t.getId());
+//            Label l = new Label(""+t.getId());
+//         }
+//         hi.show();
+
     }
 
     public void stop() {
@@ -92,5 +118,5 @@ public class MyApplication {
     
     public void destroy() {
     }
-
+    
 }
