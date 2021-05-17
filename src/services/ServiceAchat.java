@@ -11,10 +11,9 @@ import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
-import java.util.List;
 import entity.Formation;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import utils.Statics;
 
@@ -22,19 +21,19 @@ import utils.Statics;
  *
  * @author Asus
  */
-public class ServiceFormation {
+public class ServiceAchat {
      public ArrayList<Formation> formation;
       public ArrayList<Formation> achats;
      public boolean resultOK;
     private ConnectionRequest req;
-    public static ServiceFormation instance = null;
-    public ServiceFormation() {
+    public static ServiceAchat instance = null;
+    public ServiceAchat() {
         req = new ConnectionRequest();
     }
 
-      public static ServiceFormation getInstance() {
+      public static ServiceAchat getInstance() {
         if (instance == null) {
-            instance = new ServiceFormation();
+            instance = new ServiceAchat();
         }
         return instance;
     }
@@ -51,6 +50,7 @@ public class ServiceFormation {
                System.out.println("hello1   "+t);
                 List<Map<String, Object>> lst = (List<Map<String, Object>>) t.get("root");
                  System.out.println("list avant boucle"+lst);
+                 
                 for (Map<String, Object> o : lst) {
                     System.out.println("afterrr");
 
@@ -74,9 +74,9 @@ public class ServiceFormation {
             return formation;
         }
     
-     public ArrayList<Formation> getAllFormations() {
+    public ArrayList<Formation> getAllAchats() {
 
-        String url = Statics.BASE_URL + "/formation/M";
+        String url = Statics.BASE_URL + "/formation/mesFormationsAchatsM";
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");
@@ -94,10 +94,9 @@ public class ServiceFormation {
 
         return formation;
     }
-     
-      public ArrayList<Formation> getDetailFormation(int id) {
+      public boolean Acheter(int id) {
 
-        String url = Statics.BASE_URL + "/formation/detailsM/"+id;
+        String url = Statics.BASE_URL + "/achat/newM/"+id;
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");
@@ -113,50 +112,8 @@ public class ServiceFormation {
         NetworkManager.getInstance().addToQueueAndWait(req);
          System.out.println("formation "+formation);
 
-        return formation;
-    }
-     
-     
-    
-         public boolean ajoutArticle(Formation f) {
-       // création d'une nouvelle demande de connexion
-        String url = "http://127.0.0.1:8000/formation/newM?id=" + f.getId()+ "&titre=" + f.getTitre()+"&description=" + f.getDescription()+"&prix=" + f.getPrix()+"&difficulte=" + f.getDifficulte()+"&cours="+f.getCours()+"&image="+f.getImage();// création de l'URL
-       req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
-                req.removeResponseListener(this); //Supprimer cet actionListener
-                /* une fois que nous avons terminé de l'utiliser.
-                La ConnectionRequest req est unique pour tous les appels de 
-                n'importe quelle méthode du Service task, donc si on ne supprime
-                pas l'ActionListener il sera enregistré et donc éxécuté même si 
-                la réponse reçue correspond à une autre URL(get par exemple)*/
-                
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        return resultOK;
-         }
-         
-         
-          public boolean addFormation(Formation f) {
-              //String url = Statics.BASE_URL + "/formation/newM";
-       String url = "http://127.0.0.1:8000/formation/newM?id=" + f.getId()+ "&titre=" + f.getTitre()+"&description=" + f.getDescription()+"&prix=" + f.getPrix()+"&difficulte=" + f.getDifficulte()+"&cours="+f.getCours()+"&image="+f.getImage();// création de l'URL
-        req.setUrl(url);
-        
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                resultOK = req.getResponseCode() == 200; 
-                req.removeResponseListener(this); 
-                
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-              System.out.println("herrrrreee"+resultOK);
         return resultOK;
     }
-
- 
+     
     
 }
