@@ -30,6 +30,7 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Border;
 import entity.Formation;
 import gui.ActivateForm;
+import gui.AffichageOffreStage;
 import gui.Brainovation;
 import gui.ChangerMdp;
 
@@ -85,26 +86,6 @@ public class MyApplication {
         }
         new Brainovation(theme).show();
        
-//         Form hi = new Form("Hi World", BoxLayout.y());
-//         list = new ArrayList<>();
-//        Container c = new Container(BoxLayout.y());
-//        hi.addPointerDraggedListener(e -> lastScroll = System.currentTimeMillis());
-//       
-//        
-//        hi.setScrollableY(true);
-//        c.setScrollableY(true);
-//        c.getStyle().setBorder(Border.createLineBorder(2));
-//      
-//               
-//        list.addAll(ServiceFormation.getInstance().getAllTasks());
-//        System.out.println("liiist"+ServiceFormation.getInstance().getAllTasks());
-//        
-//         for (Formation t : list) {
-//  System.out.println("liiist"+list);
-//            MultiButton mb = new MultiButton(""+t.getId());
-//            Label l = new Label(""+t.getId());
-//         }
-//         hi.show();
 
     }
 

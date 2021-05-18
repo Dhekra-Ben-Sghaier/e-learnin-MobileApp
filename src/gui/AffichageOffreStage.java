@@ -5,6 +5,7 @@
  */
 package gui;
 
+import com.codename1.components.FloatingHint;
 import entity.OffreStage;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.ShareButton;
@@ -23,6 +24,9 @@ import com.codename1.ui.TextField;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.layouts.GridLayout;
+import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.util.ImageIO;
 import com.codename1.ui.util.Resources;
 import entity.Postuler_stage;
@@ -48,14 +52,23 @@ public class AffichageOffreStage {
      Form f;
     SpanLabel lb;
      private Resources theme;
-     int Id_User=1;
+     int Id_User=SessionManager.getId();
   
     public AffichageOffreStage() {
         
         
         f = new Form();
         lb = new SpanLabel("");
+        Button home=new Button();
+        System.out.println("email"+SessionManager.getEmail() );
+        String emaill=SessionManager.getEmail();
+        home.addActionListener(e->{
+            new Brainovationuser(theme,emaill);
+        });
         f.add(lb);
+        
+        f.add(home);
+      
         //OS_Services serviceTask =new OS_Services();
         ArrayList<OffreStage> ListOffres = OS_Services.getinstance().AffichageOffre();
         //lb.setText(ListOffres.toString());

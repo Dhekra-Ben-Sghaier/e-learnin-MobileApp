@@ -115,6 +115,11 @@ public class Brainovationuser extends BaseForm {
         cert.setUIID("SelectBar");
         RadioButton offres = RadioButton.createToggle("Offres", barGroup);
         offres.setUIID("SelectBar");
+        offres.addActionListener(e->{
+            AffichageOffreStage AP=new  AffichageOffreStage();
+        AP.getF().show();
+  
+        });
         RadioButton Rec = RadioButton.createToggle("Reclamations", barGroup);
         Rec.setUIID("SelectBar");
         Label arrow = new Label(res.getImage("news-tab-down-arrow.png"), "Container");
