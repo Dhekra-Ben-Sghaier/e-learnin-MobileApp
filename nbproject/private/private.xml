@@ -4,10 +4,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/utils/Statics.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/entity/Formation.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/services/ServiceFormation.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/gui/QuestionForm.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/entity/Quiz.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/services/ServiceFormation.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/gui/indexFormation.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/services/ServiceQuestion.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/services/ServiceQuiz.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/entity/Formation.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/utils/Statics.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/entity/Question.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Desktop/PidevMobile/PidevMobile/src/gui/QuizForm.java</file>
         </group>
     </open-files>
 </project-private>
