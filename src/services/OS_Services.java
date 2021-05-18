@@ -52,7 +52,7 @@ public class OS_Services {
     
    public ArrayList<OffreStage> AffichageOffre(){
         ArrayList<OffreStage> result = new ArrayList<>();
-        String URL=Statics.BASE_URL+"/ListeOS";
+        String URL=Statics.BASE_URL+"ListeOS";
         req.setUrl(URL);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -117,7 +117,7 @@ public class OS_Services {
         return result;
    }
    public void Postuler(Postuler_stage post){
-   String url = Statics.BASE_URL+"/AddPost?IdUser="+post.getId_user()+"&IdStage="+post.getId_Stage();
+   String url = Statics.BASE_URL+"AddPost?IdUser="+post.getId_user()+"&IdStage="+post.getId_Stage();
    req.setUrl(url);
    req.addResponseListener((el)-> {
        String str = new String(req.getResponseData());
