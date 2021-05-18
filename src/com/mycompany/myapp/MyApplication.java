@@ -87,7 +87,7 @@ public class MyApplication {
             current.show();
             return;
         }
-        new Inscription(theme).show();
+        new Brainovation(theme).show();
        
 //         Form hi = new Form("Hi World", BoxLayout.y());
 //         list = new ArrayList<>();

@@ -19,6 +19,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.util.Resources;
 import entity.Personnes;
 import gui.Brainovation;
+import gui.Brainovationuser;
 import gui.NewsfeedForm;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -150,7 +151,7 @@ public class ServiceUtilisateur {
                     SessionManager.setPhoto(user.get("photo").toString());
                 
                 System.out.println("current user"+SessionManager.getEmail()+""+SessionManager.getUserName());
-            new Brainovation(res,email.getText()).show();
+            new Brainovationuser(res,email.getText()).show();
             
          
      }
@@ -365,21 +366,16 @@ public class ServiceUtilisateur {
      String json= new String(req.getResponseData())+"";
         System.out.println("jspn="+json);
                   System.out.println("photo="+photo);
-    try{
-     if(json.equals("success") ){
-         
-        System.out.println("Ok");
+   
+
          Dialog.show("Informations", "Sauvegardées avec succés!","OK",null );
-     }
+              
    
           
          
          
     
-            
-    }catch(Exception ex){
-        ex.printStackTrace();
-    }  
+   
 
            });      //apres l execution de requéte url    
           NetworkManager.getInstance().addToQueueAndWait(req);

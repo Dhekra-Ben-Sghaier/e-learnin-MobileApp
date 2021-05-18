@@ -48,9 +48,9 @@ import com.codename1.ui.util.Resources;
  *
  * @author Shai Almog
  */
-public class Brainovation extends BaseForm {
+public class Brainovationuser extends BaseForm {
 
-    public Brainovation(Resources res) {
+    public Brainovationuser(Resources res,String email) {
         super("Brainovation", BoxLayout.y());
         Toolbar tb = new Toolbar(true);
         setToolbar(tb);
@@ -58,15 +58,15 @@ public class Brainovation extends BaseForm {
         setTitle("Brainovation");
         getContentPane().setScrollVisible(false);
         
-        
+        super.addSideMenu(res,email);
         tb.addSearchCommand(e -> {});
-       super.addSideMenuIns(res);
+        
         Tabs swipe = new Tabs();
 
         Label spacer1 = new Label();
         Label spacer2 = new Label();
-        addTab(swipe, res.getImage("ettt.jpg"), spacer1, "  ", "", " ");
-        addTab(swipe, res.getImage("dog.jpg"), spacer2, "  ", "", "Dogs are cute: story at 11");
+        addTab(swipe, res.getImage("ettt.jpg"), spacer1, "  ", "", "");
+        addTab(swipe, res.getImage("dog.jpg"), spacer2, "100 Likes  ", "66 Comments", "Dogs are cute: story at 11");
                 
         swipe.setUIID("Container");
         swipe.getContentPane().setUIID("Container");
@@ -106,31 +106,21 @@ public class Brainovation extends BaseForm {
         Component.setSameSize(radioContainer, spacer1, spacer2);
         add(LayeredLayout.encloseIn(swipe, radioContainer));
         
-        
         ButtonGroup barGroup = new ButtonGroup();
         RadioButton all = RadioButton.createToggle("Accueil", barGroup);
         all.setUIID("SelectBar");
         RadioButton form = RadioButton.createToggle("Formations", barGroup);
         form.setUIID("SelectBar");
-        
         RadioButton cert = RadioButton.createToggle("Certificats", barGroup);
         cert.setUIID("SelectBar");
         RadioButton offres = RadioButton.createToggle("Offres", barGroup);
         offres.setUIID("SelectBar");
         RadioButton Rec = RadioButton.createToggle("Reclamations", barGroup);
         Rec.setUIID("SelectBar");
-       RadioButton inscrire = RadioButton.createToggle("s'inscrire", barGroup);
-        inscrire.setUIID("selectBar1");
-        RadioButton login = RadioButton.createToggle("se connecter", barGroup);
-        login.setUIID("selectBar1");
         Label arrow = new Label(res.getImage("news-tab-down-arrow.png"), "Container");
-      tb.addComponentToLeftSideMenu(inscrire);
-        tb.addComponentToLeftSideMenu(login);
-        inscrire.addActionListener(e-> new Inscription(res).show());
-        login.addActionListener(e-> new SignInForm(res).show()); 
+        
         add(LayeredLayout.encloseIn(
                 GridLayout.encloseIn(5, all, form, cert, offres,Rec),
-              
                 FlowLayout.encloseBottom(arrow)
         ));
         
@@ -146,7 +136,6 @@ public class Brainovation extends BaseForm {
         bindButtonSelection(cert, arrow);
         bindButtonSelection(offres, arrow);
        bindButtonSelection(Rec, arrow);
-    
         
        
         // special case for rotation
@@ -195,7 +184,7 @@ public class Brainovation extends BaseForm {
                 BorderLayout.south(
                     BoxLayout.encloseY(
                             new SpanLabel(text, "LargeWhiteText"),
-                           
+                            
                             spacer
                         )
                 )
@@ -231,8 +220,7 @@ public class Brainovation extends BaseForm {
        
        cnt.add(BorderLayout.CENTER, 
                BoxLayout.encloseY(
-                       ta,
-                       BoxLayout.encloseX(likes, comments)
+                       ta
                ));
        add(cnt);
        image.addActionListener(e -> ToastBar.showMessage(title, FontImage.MATERIAL_INFO));

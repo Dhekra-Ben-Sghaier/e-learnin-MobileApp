@@ -340,6 +340,16 @@
         <val key="appSignUp.transparency" value="255" />
         <val key="formSignUp.bgImage" value="formation-devenir-formateur-academie-des-ormes-01.jpg" />
         <val key="formSignUp.bgType" value="33" />
+        <val key="selectBar1.align" value="4" />
+        <val key="selectBar1.bgColor" value="130741" />
+        <val key="selectBar1.bgImage" value="news-tab-down.png" />
+        <val key="selectBar1.bgType" value="30" />
+        <border key="selectBar1.border" type="empty" />
+        <val key="selectBar1.fgColor" value="ffffff" />
+        <val key="selectBar1.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="selectBar1.padUnit" value="2,0,2,0" />
+        <val key="selectBar1.padding" value="2.0,3.0,0.0,0.0" />
+        <val key="selectBar1.transparency" value="255" />
         <val key="socSignUp.bgImage" value="wayden79.jpg" />
         <val key="socSignUp.bgType" value="33" />
         <val key="socSignUp.margin" value="0.0,0.0,0.0,0.0" />
