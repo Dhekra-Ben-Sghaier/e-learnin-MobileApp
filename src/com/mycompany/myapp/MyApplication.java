@@ -14,9 +14,11 @@ import com.codename1.ui.Toolbar;
 import java.io.IOException;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.io.NetworkEvent;
+import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.plaf.Border;
 import entity.Formation;
+import gui.PubliciteForm;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import services.ServiceFormation;
@@ -60,8 +62,8 @@ public class MyApplication {
             current.show();
             return;
         }
-         Form hi = new Form("Hi World", BoxLayout.y());
-         list = new ArrayList<>();
+         Form hi = new Form("Projet", BoxLayout.y());
+     /*    list = new ArrayList<>();
         Container c = new Container(BoxLayout.y());
         hi.addPointerDraggedListener(e -> lastScroll = System.currentTimeMillis());
        
@@ -78,7 +80,15 @@ public class MyApplication {
   System.out.println("liiist"+list);
             MultiButton mb = new MultiButton(""+t.getId());
             Label l = new Label(""+t.getId());
-         }
+         }*/
+     
+     Button btn_pub = new Button("Pub");
+     btn_pub.addActionListener(aaa->{
+     
+     
+     new PubliciteForm(hi).show();
+     });
+     hi.add(btn_pub);
          hi.show();
     }
 
