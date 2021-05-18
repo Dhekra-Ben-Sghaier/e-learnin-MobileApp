@@ -4,10 +4,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/utils/Statics.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/entity/Formation.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/services/ServiceFormation.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/piDevMobile/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/gui/BaseForm.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/gui/DetailsFormation.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/gui/Inscription.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/gui/AjouterFormations.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/com/mycompany/myapp/MyApplication.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/services/ServiceFormation.java</file>
+            <file>file:/C:/Users/Asus/Desktop/PideMobile/PidevMobile/src/gui/indexFormation.java</file>
         </group>
     </open-files>
 </project-private>

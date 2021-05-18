@@ -171,19 +171,7 @@ public class indexFormation extends BaseForm{
       //lister Formations
       
         ArrayList<Formation> list = ServiceFormation.getInstance().getAllFormations();
-        Container C = new Container();
-        //C.getAllStyles().setPaddingLeft(50);
-        Label text = new Label("Produit");
-        Label text1 = new Label("Prix");
-        Label text2 = new Label("Quantite");
-        text1.getAllStyles().setPaddingLeft(14);
-        text2.getAllStyles().setPaddingLeft(14);
-       /* Container C1 = new Container();
-        C1.getAllStyles().setBgColor(0x000000);
-       // C1.add(new Label("H"));
-        C1.setHeight(2);*/
-        C.addAll(text,text1,text2);
-        add(C);
+
         for(Formation f : list){
            // addButton(f.getId(),f.getTitre(),f.getDescription(),f.getPrix(),f.getDifficulte());
 //             Container c1 = new Container(BoxLayout.x());
@@ -201,9 +189,14 @@ public class indexFormation extends BaseForm{
 //           
 //               add(c1);
 
-            
-            addBtn(res.getImage("news-item-1.jpg"), f.getTitre());
-               
+           
+            Button btnDetail = new Button();
+            btnDetail.setText("Detail");
+            btnDetail.getAllStyles().setPaddingLeft(2);
+            btnDetail.addActionListener(e -> new DetailsFormation(res,f).show());
+
+            addBtn(f);
+            add(btnDetail);
            
         }
        
@@ -271,30 +264,33 @@ public class indexFormation extends BaseForm{
     
     }
 
-     private void addBtn(Image img, String title) {
-         try {
-             int height = Display.getInstance().convertToPixels(11.5f);
-             int width = Display.getInstance().convertToPixels(14f);
-             Button image = new Button(img.fill(width, height));
-             image.setUIID("Label");
-              EncodedImage enc = null;
-             Image imgs;
-             ImageViewer imgv;
-             //String url = "http://127.0.0.1:8000/assets/img/shop-img/"+a.getImg();
-             String url =  "http://localhost/img/c#.png";
-             //enc = EncodedImage.create("/signup-background.jpg");
-             imgs = URLImage.createToStorage(enc, url, url);
-             imgs.scaled(1500, 1200);
-             imgv = new ImageViewer(imgs);
-             add(imgv);
-             Container cnt = BorderLayout.west(imgv);
-             cnt.setLeadComponent(imgv);
-             TextArea ta = new TextArea(title);
-             ta.setUIID("NewsTopLine");
-             ta.setEditable(false);
-             
-             
-            
+     private void addBtnn(String title, Resources res) {
+         ImageViewer imgage = new ImageViewer(); //Logger.getLogger(indexFormation.class.getName()).log(Level.SEVERE, null, ex);
+         EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(this.getWidth()/3, this.getWidth()/3),false);
+         //URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/img/"+f.getImage());
+         URLImage urlImage = URLImage.createToStorage(placeholder, "c#.png", "http://localhost/img/c#.png");
+         imgage.setImage(urlImage);
+         int height = Display.getInstance().convertToPixels(11.5f);
+         int width = Display.getInstance().convertToPixels(14f);
+         
+         //Button image = new Button(urlImage.fill(width, height));
+        // image.setUIID("Label");
+         //             //heeereee
+//              EncodedImage enc = (EncodedImage) res.getImage("signup-background.jpg");
+//             Image imgs;
+//             ImageViewer imgv;
+//             //String url = "http://127.0.0.1:8000/assets/img/shop-img/"+a.getImg();
+//             String url =  "http://localhost/img/c#.png";
+//             enc = EncodedImage.create("/signup-background.jpg");
+//             imgs = URLImage.createToStorage(enc, url, url);
+//             imgs.scaled(1500, 1200);
+//             imgv = new ImageViewer(imgs);
+//             add(imgv);
+        Container cnt = BorderLayout.west(imgage);
+        cnt.setLeadComponent(imgage);
+        TextArea ta = new TextArea(title);
+        ta.setUIID("NewsTopLine");
+        ta.setEditable(false);
 //       Label likes = new Label(likeCount + " Likes  ", "NewsBottomLine");
 //       likes.setTextPosition(RIGHT);
 //       if(!liked) {
@@ -313,14 +309,47 @@ cnt.add(BorderLayout.CENTER,
         BoxLayout.encloseY(
                 ta));
 add(cnt);
-image.addActionListener(e -> ToastBar.showMessage(title, FontImage.MATERIAL_INFO));
-         } catch (IOException ex) {
-             System.out.println("exxxxxxxxx  "+ex);
-             //Logger.getLogger(indexFormation.class.getName()).log(Level.SEVERE, null, ex);
-         }
+//imgage.addActionListener(e -> ToastBar.showMessage(title, FontImage.MATERIAL_INFO));
    }
      
- 
+  private void addBtn(Formation f) {
+      
+      
+       ImageViewer imgage = new ImageViewer(); //Logger.getLogger(indexFormation.class.getName()).log(Level.SEVERE, null, ex);
+       EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(this.getWidth()/3, this.getWidth()/3),false);
+       System.out.println("urllll  "+  "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
+         URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
+        // URLImage urlImage = URLImage.createToStorage(placeholder,"http://localhost/img/c%23.png","http://localhost/img/c%23.png");
+         imgage.setImage(urlImage);
+         
+         
+         int height = Display.getInstance().convertToPixels(11.5f);
+         int width = Display.getInstance().convertToPixels(14f);
+         
+         
+     //Button image = new Button(img.fill(width, height));
+      // image.setUIID("Label");
+       Container cnt = BorderLayout.west(imgage);
+       cnt.setLeadComponent(imgage);
+       TextArea ta = new TextArea(f.getTitre());
+       ta.setUIID("LabelBlack");
+       ta.setEditable(false);
+       
+//       TextArea t = new TextArea(f.getPrix()+" DT");
+//       ta.setUIID("NewsTopLine");
+//       ta.setEditable(false);
+
+     
+       
+       cnt.add(BorderLayout.CENTER, 
+               BoxLayout.encloseY(
+                       ta
+               ));
+       add(cnt);
+      // imgage.addActionListener(e -> ToastBar.showMessage(title, FontImage.MATERIAL_INFO));
+   }
+    
+
     
     
 }

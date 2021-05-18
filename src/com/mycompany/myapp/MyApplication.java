@@ -10,6 +10,8 @@ import com.codename1.io.Log;
 import com.codename1.ui.Toolbar;
 import entity.Formation;
 import gui.AjouterFormations;
+import gui.DetailsFormation;
+import gui.MesAchat;
 import gui.indexFormation;
 
 
@@ -57,8 +59,9 @@ public class MyApplication {
             current.show();
             return;
         }
-        
-        new indexFormation(theme).show();
+         new MesAchat(theme).show();
+       // new DetailsFormation(theme).show();
+      // new indexFormation(theme).show();
           //new AjouterFormations(theme).show();
         System.out.println("c bnnn");
         //new Inscription(theme).show();

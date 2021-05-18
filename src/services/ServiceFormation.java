@@ -62,6 +62,8 @@ public class ServiceFormation {
                 f.setTitre(o.get("titre").toString());
                 f.setDescription(o.get("description").toString()) ;
                 f.setPrix(prix);
+                 f.setDifficulte(o.get("difficulte").toString()) ;
+                f.setImage(o.get("image").toString());
                
                   
                     formation.add(f);

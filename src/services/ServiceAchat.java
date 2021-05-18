@@ -62,8 +62,9 @@ public class ServiceAchat {
                 f.setTitre(o.get("titre").toString());
                 f.setDescription(o.get("description").toString()) ;
                 f.setPrix(prix);
-               
-                  
+                 f.setDifficulte(o.get("difficulte").toString()) ;
+                f.setImage(o.get("image").toString());
+                 
                     formation.add(f);
                     System.out.println("ffffff"+ f);
                 }
@@ -98,18 +99,17 @@ public class ServiceAchat {
 
         String url = Statics.BASE_URL + "/achat/newM/"+id;
         req.setUrl(url);
-        req.setPost(false);
-        req.addArgument("format", "json");
-        
+      
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
-              formation = parseTasks(new String(req.getResponseData()));
+              //formation = parseTasks(new String(req.getResponseData()));
                 System.out.println("heeeeey : "+new String(req.getResponseData()));
                 req.removeResponseListener(this);
             }
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
+      
          System.out.println("formation "+formation);
 
         return resultOK;
