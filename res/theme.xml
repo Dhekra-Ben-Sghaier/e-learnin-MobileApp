@@ -5,4 +5,7 @@
         <val key="@includeNativeBool" value="true" />
     </theme>
     <image name="vermeg.png"  />
+    <image name="arrow.png"  />
+    <image name="image.jpg"  />
+   
 </resource>
