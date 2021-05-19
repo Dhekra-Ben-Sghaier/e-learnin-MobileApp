@@ -47,6 +47,7 @@ public class ServiceFormation {
                 JSONParser j = new JSONParser();
               //parseJSON(new CharArrayReader(jsonText.toCharArray())
                 Map<String, Object> t;
+                System.out.println("teest"+jsonText);
                 t= j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
                System.out.println("hello1   "+t);
                 List<Map<String, Object>> lst = (List<Map<String, Object>>) t.get("root");
@@ -78,7 +79,7 @@ public class ServiceFormation {
     
      public ArrayList<Formation> getAllFormations() {
 
-        String url = Statics.BASE_URL + "/formation/M";
+        String url = Statics.BASE_URL + "formation/M";
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");
@@ -99,7 +100,7 @@ public class ServiceFormation {
      
       public ArrayList<Formation> getDetailFormation(int id) {
 
-        String url = Statics.BASE_URL + "/formation/detailsM/"+id;
+        String url = Statics.BASE_URL + "formation/detailsM/"+id;
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");

@@ -118,6 +118,9 @@ String rolee=SessionManager.getRole();
         offres.setUIID("SelectBar");
         RadioButton pub = RadioButton.createToggle("Publicités", barGroup);
         pub.setUIID("SelectBar"); 
+          form.addActionListener(e->{
+              new indexFormation(res).show();
+        });
            cert.addActionListener(e->{
               new QuizForm(hi).show();
         });

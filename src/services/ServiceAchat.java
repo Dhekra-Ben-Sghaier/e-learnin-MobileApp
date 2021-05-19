@@ -12,6 +12,8 @@ import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
 import com.codename1.ui.events.ActionListener;
 import entity.Formation;
+import entity.Personnes;
+import gui.SessionManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +24,7 @@ import utils.Statics;
  * @author Asus
  */
 public class ServiceAchat {
+      int Id_User=SessionManager.getId();
      public ArrayList<Formation> formation;
       public ArrayList<Formation> achats;
      public boolean resultOK;
@@ -76,8 +79,10 @@ public class ServiceAchat {
         }
     
     public ArrayList<Formation> getAllAchats() {
-//yyyy
-        String url = Statics.BASE_URL + "/formation/mesFormationsAchatsM"+"currentID";
+//yyyy 
+Personnes p=new Personnes();
+p.setId(Id_User);
+        String url = Statics.BASE_URL + "formation/mesFormationsAchatsM/"+p.getId();
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");
@@ -97,7 +102,9 @@ public class ServiceAchat {
     }
       public boolean Acheter(int id) {
 //yyyy
-        String url = Statics.BASE_URL + "/achat/newM/"+id;
+Personnes p=new Personnes();
+p.setId(Id_User);
+        String url = Statics.BASE_URL + "achat/newM/"+id+"/"+p.getId();
         req.setUrl(url);
       
         req.addResponseListener(new ActionListener<NetworkEvent>() {

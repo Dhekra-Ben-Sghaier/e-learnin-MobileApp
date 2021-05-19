@@ -197,15 +197,16 @@ public class Acheter extends BaseForm{
                        final Dialog iDialog = ip.showInfiniteBlocking();
                        ServiceAchat.getInstance().Acheter(f.getId());
                        btnAjout.setEnabled(false);
-                       ToastBar.showMessage("Achat effectué avec succée!", FontImage.MATERIAL_INFO);
+                      
                        //ServiceFormation.getInstance().addFormation(f);
                        iDialog.dispose();
                        refreshTheme();
                        
 //                       list = new ArrayList<>();
 //                       list.addAll(ServiceAchat.getInstance().getAllAchats());
-                       
+                        ToastBar.showMessage("Achat effectué avec succée!", FontImage.MATERIAL_INFO);
                    }
+                   
                }catch (Exception ee){
                    
                  

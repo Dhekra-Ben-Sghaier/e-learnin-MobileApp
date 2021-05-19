@@ -175,7 +175,7 @@ public class DetailsAchat extends BaseForm{
         ImageViewer imgage = new ImageViewer(); //Logger.getLogger(indexFormation.class.getName()).log(Level.SEVERE, null, ex);
        EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(this.getWidth()/3, this.getWidth()/3),false);
        System.out.println("urllll  "+  "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
-         URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
+         URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/PidevWebFinale/PidevWeb/public/uploads/"+f.getImage());
         // URLImage urlImage = URLImage.createToStorage(placeholder,"http://localhost/img/c%23.png","http://localhost/img/c%23.png");
          imgage.setImage(urlImage);
          
@@ -189,12 +189,12 @@ public class DetailsAchat extends BaseForm{
        Container cnt = BorderLayout.west(imgage);
        cnt.setLeadComponent(imgage);
          Label likes = new Label();
-       ServiceFormation.getInstance().getDetailFormation(66);
+     
        Style heartStyle = new Style(likes.getUnselectedStyle());
         heartStyle.setFgColor(0xff2d55);
         FontImage heartImage = FontImage.createMaterial(FontImage.MATERIAL_FAVORITE, heartStyle);
      
-        Label text = new Label(ServiceFormation.getInstance().getDetailFormation(66).toString());
+        //Label text = new Label(ServiceFormation.getInstance().getDetailFormation(66).toString());
           Label id = new Label("Reference :"+f.getId());
           id.setUIID("LabelBlack");
           

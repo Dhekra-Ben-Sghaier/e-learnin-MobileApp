@@ -317,8 +317,8 @@ add(cnt);
       
        ImageViewer imgage = new ImageViewer(); //Logger.getLogger(indexFormation.class.getName()).log(Level.SEVERE, null, ex);
        EncodedImage placeholder = EncodedImage.createFromImage(Image.createImage(this.getWidth()/3, this.getWidth()/3),false);
-       System.out.println("urllll  "+  "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
-         URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/webPidevv/PidevWeb/public/uploads/"+f.getImage());
+      // System.out.println("urllll  "+  "http://localhost/PidevWebFinale/PidevWeb/public/uploads/"+f.getImage());
+         URLImage urlImage = URLImage.createToStorage(placeholder, f.getImage(), "http://localhost/PidevWebFinale/PidevWeb/public/uploads/"+f.getImage());
         // URLImage urlImage = URLImage.createToStorage(placeholder,"http://localhost/img/c%23.png","http://localhost/img/c%23.png");
          imgage.setImage(urlImage);
          
