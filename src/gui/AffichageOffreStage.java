@@ -27,8 +27,10 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.ImageIO;
 import com.codename1.ui.util.Resources;
+import entity.Personnes;
 import entity.Postuler_stage;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -56,7 +58,7 @@ public class AffichageOffreStage {
   
     public AffichageOffreStage() {
         
-        
+        theme=UIManager.initFirstTheme("/theme_1");
         f = new Form();
         lb = new SpanLabel("");
         Button home=new Button();
@@ -129,9 +131,19 @@ public class AffichageOffreStage {
              f1.add(email);
              f1.add(body);
              f1.add(Send);
+                 Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
+         
+        Button btnretour= new Button("retour");
+       
+      
+       f1.add(btnretour);
              String Titre = l.getTitre();
              f1.getToolbar().addCommandToLeftBar("Back", null, tl -> h.showBack());
              f1.show();
+            btnretour.addActionListener(z->{
+            new Brainovationuser(theme, p.getEmail()).show();
+        });
              Send.addActionListener(a->{
                 try {
                     if(email.getText()=="" || body.getText()==""){

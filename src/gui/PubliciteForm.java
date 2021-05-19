@@ -7,6 +7,7 @@ package gui;
 
 import com.codename1.components.InfiniteProgress;
 import com.codename1.components.MultiButton;
+import com.codename1.ui.Button;
 import com.codename1.ui.Component;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
@@ -17,6 +18,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.MyApplication;
+import entity.Personnes;
 import entity.Publicite;
 import services.ServicePublicite;
 
@@ -26,6 +28,7 @@ import services.ServicePublicite;
  */
 public class PubliciteForm extends Form {
    Resources theme = UIManager.initFirstTheme("/theme");
+  Resources themee = UIManager.initFirstTheme("/theme_1");
     public PubliciteForm(Form previous)
     {
            super("Publicite",BoxLayout.y());
@@ -112,10 +115,16 @@ public class PubliciteForm extends Form {
         imge2 = URLImage.createToStorage(enc2, url2, url2);
         f2.add(imge2);
            
-             f2.getToolbar().addCommandToOverflowMenu("back", null, ev -> {
-           new Brainovationuser(theme,"telnet20@gmail.com").show();
-        });      
+       Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
          
+        Button btnretour=new Button();
+      btnretour.setUIID("selectBar1");
+       btnretour.addActionListener(w -> new Brainovationuser(theme,p.getEmail()).show());
+           
+             f2.getToolbar().addCommandToOverflowMenu("back", null, ev -> {
+            new Brainovationuser(themee,p.getEmail()).show();
+        }); 
  f2.show();
         });
       

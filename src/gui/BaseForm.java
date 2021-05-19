@@ -117,7 +117,8 @@ public class BaseForm extends Form {
 //        tb.addMaterialCommandToSideMenu("Newsfeed", FontImage.MATERIAL_UPDATE, e -> new NewsfeedForm(res).show());
         tb.addMaterialCommandToSideMenu("Profile", FontImage.MATERIAL_SETTINGS, e -> new ProfileForm(res,email).show());
         tb.addMaterialCommandToSideMenu("Photo", FontImage.MATERIAL_IMAGE, e -> new Photo(res,email).show());
-      tb.addMaterialCommandToSideMenu("Les Achats", FontImage.MATERIAL_IMAGE, e -> new MesAchat(res).show());
+      tb.addMaterialCommandToSideMenu("Mes Achats", FontImage.MATERIAL_LIST, e -> new MesAchat(res).show());
+        tb.addMaterialCommandToSideMenu("Mes reclamations", FontImage.MATERIAL_LIST, e -> new mesReclamations(this).show());
         tb.addMaterialCommandToSideMenu("Se deconnecter", FontImage.MATERIAL_EXIT_TO_APP, e -> new SignInForm(res).show());
     }
     

@@ -131,6 +131,7 @@ String rolee=SessionManager.getRole();
         });
         RadioButton Rec = RadioButton.createToggle("Reclamations", barGroup);
         Rec.setUIID("SelectBar");
+       
         Label arrow = new Label(res.getImage("news-tab-down-arrow.png"), "Container");
         
         add(LayeredLayout.encloseIn(
@@ -150,7 +151,9 @@ String rolee=SessionManager.getRole();
             pub.addActionListener(e->{
                 new AjoutPubliciteForm(this,email).show();
             });
-       
+            Rec.addActionListener(e->{
+              new AjouttRecForm(this, email).show();
+        });
         bindButtonSelection(all, arrow);
         bindButtonSelection(form, arrow);
         bindButtonSelection(cert, arrow);

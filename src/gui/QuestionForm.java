@@ -21,6 +21,7 @@ import services.ServiceQuestion;
 
 public class QuestionForm  extends Form {
 String nom = SessionManager.getUserName();
+
     Resources theme = UIManager.initFirstTheme("/theme_1");
     int s=0;
     public ArrayList<String> bonne_reponses = new ArrayList<>();
@@ -31,8 +32,10 @@ String nom = SessionManager.getUserName();
             for (Question c : new ServiceQuestion().findAll(C.getQuizid())) {
             this.add(addItem_Question(c));
         }
+              
             Button btn = new Button("Valider");            
             this.add(btn);     
+          
             btn.addActionListener(lm->{
                 for (String bonne_reponse : bonne_reponses) {        
                     for (String reponse : reponses) {
@@ -74,9 +77,12 @@ String nom = SessionManager.getUserName();
                     Dialog.show("Dommage", "Vzuillez réessayer ", "OK", null);
                     new MyApplication().start();               }
             });
-
+        
+       Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
+         
             this.getToolbar().addCommandToOverflowMenu("Retour", null, ev -> {
-            new MyApplication().start();
+            new Brainovationuser(theme,p.getEmail()).show();
         });
     }
     

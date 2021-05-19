@@ -31,8 +31,10 @@ import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.layouts.GridLayout;
 import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import entity.Formation;
+import entity.Personnes;
 import java.util.ArrayList;
 import services.ServiceAchat;
 /**
@@ -43,7 +45,7 @@ public class Acheter extends BaseForm{
  Form current;
 
     public Acheter(Resources res, Formation f) {
-        
+         
           super("Newsfeed", BoxLayout.y());
        
        
@@ -141,7 +143,7 @@ public class Acheter extends BaseForm{
         });
 
         add(LayeredLayout.encloseIn(
-                GridLayout.encloseIn(3, mesListes, liste, partage),
+            //    GridLayout.encloseIn(3, mesListes, liste, partage),
                 FlowLayout.encloseBottom(arrow)
         ));
 
@@ -176,10 +178,14 @@ public class Acheter extends BaseForm{
      
          
        
-       
+        Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
+         
+      Button btnretour=new Button("Retour");
        
        Button btnAjout = new Button("Ajouter");
        addStringValue("", btnAjout);
+         addStringValue("", btnretour);
        
        //listner
        
@@ -214,7 +220,7 @@ public class Acheter extends BaseForm{
                 
                             }
        } );
-       
+        btnretour.addActionListener(e -> new Brainovationuser(res,p.getEmail()).show());
    }
 
     private void addStringValue(String s, Component v) {

@@ -36,6 +36,7 @@ import com.codename1.ui.layouts.LayeredLayout;
 import com.codename1.ui.plaf.Style;
 import com.codename1.ui.util.Resources;
 import entity.Formation;
+import entity.Personnes;
 import java.util.ArrayList;
 import services.ServiceAchat;
 import services.ServiceFormation;
@@ -186,12 +187,18 @@ public class MesAchat extends BaseForm{
 
            
             Button btnDetail = new Button();
+              
+        Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
+         
+      Button btnretour=new Button("Retour");
             btnDetail.setText("Detail");
             btnDetail.getAllStyles().setPaddingLeft(2);
             btnDetail.addActionListener(e -> new DetailsAchat(res,f).show());
-
+ btnretour.addActionListener(e -> new Brainovationuser(res,p.getEmail()).show());
             addBtn(f);
             add(btnDetail);
+            add(btnretour);
            
         }
        

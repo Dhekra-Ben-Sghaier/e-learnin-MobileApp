@@ -26,6 +26,7 @@ import com.codename1.ui.validation.LengthConstraint;
 import com.codename1.ui.validation.RegexConstraint;
 import com.codename1.ui.validation.Validator;
 import com.mycompany.myapp.MyApplication;
+import entity.Personnes;
 import entity.Publicite;
 import java.io.IOException;
 import java.util.Date;
@@ -213,10 +214,11 @@ btn.addActionListener(ll->{
         
         
           this.add(Nom).add(Prenom).add(mail).add(domaine).add(prix).add(affichage).add(lab).add(lien).add(upload).add(save);
-               
+                  Personnes p=new Personnes();
+       p.setEmail(SessionManager.getEmail());
         
            this.getToolbar().addCommandToOverflowMenu("back", null, ev -> {
-           new MyApplication().start();
+          new Brainovationuser(themee, p.getEmail()).show();
         });
         
         

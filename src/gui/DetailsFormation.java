@@ -146,7 +146,7 @@ public class DetailsFormation extends BaseForm{
         });
 
         add(LayeredLayout.encloseIn(
-                GridLayout.encloseIn(3, mesListes, liste, partage),
+               // GridLayout.encloseIn(3, mesListes, liste, partage),
                 FlowLayout.encloseBottom(arrow)
         ));
 

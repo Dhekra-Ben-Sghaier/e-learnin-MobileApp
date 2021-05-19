@@ -268,7 +268,7 @@ public class ServiceUtilisateur {
             Dialog.show("Mot de passe", "Votre mdp a été changé avec succés!","OK",null );
      
       
-          
+          new Brainovationuser(res, email).show();
          
          
      }
