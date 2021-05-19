@@ -28,6 +28,7 @@ import com.codename1.ui.Component;
 import com.codename1.ui.Container;
 import com.codename1.ui.Display;
 import com.codename1.ui.FontImage;
+import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
@@ -102,7 +103,7 @@ String rolee=SessionManager.getRole();
                 rbs[ii].setSelected(true);
             }
         });
-        
+        Form hi = new Form("Projet", BoxLayout.y());
         Component.setSameSize(radioContainer, spacer1, spacer2);
         add(LayeredLayout.encloseIn(swipe, radioContainer));
         
@@ -117,7 +118,9 @@ String rolee=SessionManager.getRole();
         offres.setUIID("SelectBar");
         RadioButton pub = RadioButton.createToggle("Publicités", barGroup);
         pub.setUIID("SelectBar"); 
-        
+           cert.addActionListener(e->{
+              new QuizForm(hi).show();
+        });
         offres.addActionListener(e->{
             AffichageOffreStage AP=new  AffichageOffreStage();
         AP.getF().show();

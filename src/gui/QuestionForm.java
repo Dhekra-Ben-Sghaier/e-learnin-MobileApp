@@ -12,6 +12,7 @@ import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.MyApplication;
+import entity.Personnes;
 import entity.Question;
 import entity.Quiz;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import services.ServiceQuestion;
 
 
 public class QuestionForm  extends Form {
-
+String nom = SessionManager.getUserName();
     Resources theme = UIManager.initFirstTheme("/theme_1");
     int s=0;
     public ArrayList<String> bonne_reponses = new ArrayList<>();
@@ -46,11 +47,14 @@ public class QuestionForm  extends Form {
                     Dialog.show("Félicitations", "Vous avez passez le quiz ", "OK", null);                     
                     Button btn_imprimer = new Button("imprimer");
                     btn_imprimer.addActionListener(laa->{
-                    String urlab = "http://localhost/pdf/ex.php";
+                    String urlab = "http://localhost/pdf/exx.php";
 
                         ConnectionRequest cnreq = new ConnectionRequest();
                         cnreq.setPost(false);
-                        String data = C.getNom();
+                       Personnes p=new Personnes();
+                       p.setNomUtilisateur(nom);
+                        String data = "<img src=\"/files/images/abc.jpg\">"+"Felicitations," + p.getNomUtilisateur() +"<br>"
+                                + "Vous avez passer le quiz de ;" + C.getNom() ;
                         cnreq.addArgument("data", data);
                         cnreq.setUrl(urlab);
 

@@ -67,7 +67,7 @@ public class ServiceQuestion {
     }
 
     public ArrayList<Question> findAll(int id_quiz) {
-        String url = Statics.BASE_URL + "/List_ques/"+id_quiz;
+        String url = Statics.BASE_URL + "List_ques/"+id_quiz;
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
