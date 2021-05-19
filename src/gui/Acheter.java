@@ -7,6 +7,7 @@ package gui;
 import com.codename1.components.InfiniteProgress;
 import com.codename1.components.ScaleImageLabel;
 import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
 import com.codename1.ui.Button;
 import com.codename1.ui.ButtonGroup;
 import com.codename1.ui.Component;
@@ -14,6 +15,7 @@ import com.codename1.ui.Container;
 import com.codename1.ui.Dialog;
 import com.codename1.ui.Display;
 import com.codename1.ui.EncodedImage;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Graphics;
 import com.codename1.ui.Image;
@@ -195,8 +197,8 @@ public class Acheter extends BaseForm{
                        final Dialog iDialog = ip.showInfiniteBlocking();
                        ServiceAchat.getInstance().Acheter(f.getId());
                        btnAjout.setEnabled(false);
-                       
-//ServiceFormation.getInstance().addFormation(f);
+                       ToastBar.showMessage("Achat effectué avec succée!", FontImage.MATERIAL_INFO);
+                       //ServiceFormation.getInstance().addFormation(f);
                        iDialog.dispose();
                        refreshTheme();
                        

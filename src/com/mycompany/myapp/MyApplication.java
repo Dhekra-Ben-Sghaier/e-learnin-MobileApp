@@ -59,9 +59,9 @@ public class MyApplication {
             current.show();
             return;
         }
-         new MesAchat(theme).show();
+        // new MesAchat(theme).show();
        // new DetailsFormation(theme).show();
-      // new indexFormation(theme).show();
+      new indexFormation(theme).show();
           //new AjouterFormations(theme).show();
         System.out.println("c bnnn");
         //new Inscription(theme).show();

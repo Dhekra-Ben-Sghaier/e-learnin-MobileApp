@@ -76,8 +76,8 @@ public class ServiceAchat {
         }
     
     public ArrayList<Formation> getAllAchats() {
-
-        String url = Statics.BASE_URL + "/formation/mesFormationsAchatsM";
+//yyyy
+        String url = Statics.BASE_URL + "/formation/mesFormationsAchatsM"+"currentID";
         req.setUrl(url);
         req.setPost(false);
         req.addArgument("format", "json");
@@ -96,7 +96,7 @@ public class ServiceAchat {
         return formation;
     }
       public boolean Acheter(int id) {
-
+//yyyy
         String url = Statics.BASE_URL + "/achat/newM/"+id;
         req.setUrl(url);
       
