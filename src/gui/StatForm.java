@@ -18,7 +18,7 @@ import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.MyApplication;
 import entity.Publicite;
-import static java.time.temporal.TemporalAdjusters.previous;
+
 import java.util.ArrayList;
 
 /**
