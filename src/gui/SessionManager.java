@@ -23,6 +23,7 @@ public class SessionManager {
     private static String email; 
     private static String passowrd ;
     private static String photo;
+     private static String role;
 
     public static Preferences getPref() {
         return pref;
@@ -73,7 +74,13 @@ public class SessionManager {
     }
     
     
-    
+      public static String getRole() {
+        return pref.get("role",role);
+    }
+
+    public static void setRole(String role) {
+         pref.set("role",role);
+    }
     
     
     

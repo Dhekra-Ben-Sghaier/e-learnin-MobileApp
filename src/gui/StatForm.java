@@ -11,12 +11,14 @@ import com.codename1.charts.renderers.DefaultRenderer;
 import com.codename1.charts.renderers.SimpleSeriesRenderer;
 import com.codename1.charts.util.ColorUtil;
 import com.codename1.charts.views.PieChart;
+import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.MyApplication;
 import entity.Publicite;
+import static java.time.temporal.TemporalAdjusters.previous;
 import java.util.ArrayList;
 
 /**
@@ -99,7 +101,7 @@ public class StatForm {
          
         f.getToolbar().addCommandToLeftBar("back", null, (evt)
                 -> {
-            new MyApplication().start();
+           //f.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e-> previous.showBack());
         });
         f.show();
 

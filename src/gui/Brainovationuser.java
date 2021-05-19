@@ -49,7 +49,7 @@ import com.codename1.ui.util.Resources;
  * @author Shai Almog
  */
 public class Brainovationuser extends BaseForm {
-
+String rolee=SessionManager.getRole();
     public Brainovationuser(Resources res,String email) {
         super("Brainovation", BoxLayout.y());
         Toolbar tb = new Toolbar(true);
@@ -60,7 +60,7 @@ public class Brainovationuser extends BaseForm {
         
         super.addSideMenu(res,email);
         tb.addSearchCommand(e -> {});
-        
+         System.out.println("role= "+rolee);
         Tabs swipe = new Tabs();
 
         Label spacer1 = new Label();
@@ -115,6 +115,9 @@ public class Brainovationuser extends BaseForm {
         cert.setUIID("SelectBar");
         RadioButton offres = RadioButton.createToggle("Offres", barGroup);
         offres.setUIID("SelectBar");
+        RadioButton pub = RadioButton.createToggle("Publicités", barGroup);
+        pub.setUIID("SelectBar"); 
+        
         offres.addActionListener(e->{
             AffichageOffreStage AP=new  AffichageOffreStage();
         AP.getF().show();
@@ -125,7 +128,7 @@ public class Brainovationuser extends BaseForm {
         Label arrow = new Label(res.getImage("news-tab-down-arrow.png"), "Container");
         
         add(LayeredLayout.encloseIn(
-                GridLayout.encloseIn(5, all, form, cert, offres,Rec),
+                GridLayout.encloseIn(6, all, form, cert, offres,Rec,pub),
                 FlowLayout.encloseBottom(arrow)
         ));
         
@@ -136,11 +139,18 @@ public class Brainovationuser extends BaseForm {
             updateArrowPosition(all, arrow);
             
         });
+       
+       
+            pub.addActionListener(e->{
+                new AjoutPubliciteForm(this,email).show();
+            });
+       
         bindButtonSelection(all, arrow);
         bindButtonSelection(form, arrow);
         bindButtonSelection(cert, arrow);
         bindButtonSelection(offres, arrow);
        bindButtonSelection(Rec, arrow);
+       bindButtonSelection(pub, arrow);
         
        
         // special case for rotation

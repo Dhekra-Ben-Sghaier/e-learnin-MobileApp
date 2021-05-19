@@ -38,13 +38,15 @@ import services.ServicePublicite;
 public class AjoutPubliciteForm  extends Form{
    
       String file ;
+  
+     
           Resources theme;
                       Resources themee = UIManager.initFirstTheme("/theme_1");
 
     
-     public AjoutPubliciteForm(Form previous)  {
+     public AjoutPubliciteForm(Form previous,String email)  {
                 super("Publicite", BoxLayout.y());
-                
+                System.out.println("emailllll+ "+email);
                    TextField Nom = new TextField("", "Nom", 20, TextArea.TEXT_CURSOR);
                 
                 TextField Prenom = new TextField("", "Prenom", 20, TextArea.TEXT_CURSOR);
@@ -83,6 +85,7 @@ public class AjoutPubliciteForm  extends Form{
                             val_mail.addConstraint(mail, new LengthConstraint(8));
                             val_mail.addConstraint(mail, new RegexConstraint(text_mail, ""));
         Button save = new Button("Ajouter");
+        
                  
                
         upload.addActionListener(new ActionListener() {
@@ -168,7 +171,7 @@ public class AjoutPubliciteForm  extends Form{
                                 p.setImagee(file);
                                 p.setPrix(Integer.valueOf(prix.getText()));
                                 ServicePublicite sp = new ServicePublicite();
-                                sp.Add(p);
+                                sp.Add(p, previous);
                                  Dialog.show("Ajout", "Ajout", "OK", null);
                                   String url = "http://localhost/pdf/ex.php";
 /*Button btn = new Button("hee");
@@ -188,7 +191,7 @@ btn.addActionListener(ll->{
                         -> {
                     String valeur = new String(cnreq.getResponseData());
                      Dialog.show("PDF", "PDF", "OK", null);
-                    new MyApplication().start();
+                
 
                 }
                 );

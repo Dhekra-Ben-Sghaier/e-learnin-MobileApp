@@ -11,8 +11,10 @@ import com.codename1.io.ConnectionRequest;
 import com.codename1.io.JSONParser;
 import com.codename1.io.NetworkEvent;
 import com.codename1.io.NetworkManager;
+import com.codename1.ui.Form;
 import com.codename1.ui.events.ActionListener;
 import entity.Publicite;
+import gui.PubliciteForm;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -111,7 +113,7 @@ public class ServicePublicite {
     }
      
     public ArrayList<Publicite> findAll() {
-        String url = Statics.BASE_URL + "/publicite/Mobile_Pub";
+        String url = Statics.BASE_URL + "publicite/Mobile_Pub";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -126,7 +128,7 @@ public class ServicePublicite {
     }
     
      public ArrayList<Publicite> findAllStat() {
-        String url = Statics.BASE_URL + "/Mobile_stats";
+        String url = Statics.BASE_URL + "Mobile_stats";
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -140,8 +142,8 @@ public class ServicePublicite {
         return Publicites;
     }
     
- public void Add(Publicite p ) {
-        String url = Statics.BASE_URL + "/publicite/Add_Publicite?image="+p.getImagee()+"&lien="+p.getLien()+"&affichage="+p.getAffichage()+"&nom="+p.getNom()+"&prenom="+p.getPrenom()+"&mail="+p.getEmail()+"&domaine="+p.getDomaine();
+ public void Add(Publicite p ,Form previous) {
+        String url = Statics.BASE_URL + "publicite/Add_Publicite?image="+p.getImagee()+"&lien="+p.getLien()+"&affichage="+p.getAffichage()+"&nom="+p.getNom()+"&prenom="+p.getPrenom()+"&mail="+p.getEmail()+"&domaine="+p.getDomaine();
         req.setUrl(url);
         req.setPost(false);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -151,6 +153,8 @@ public class ServicePublicite {
                 req.removeResponseListener(this);
             }
         });
+        
+        new PubliciteForm(previous).show();
         NetworkManager.getInstance().addToQueueAndWait(req);
     
     }

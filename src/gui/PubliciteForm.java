@@ -75,7 +75,7 @@ public class PubliciteForm extends Form {
            new MyApplication().start();
         });
                    this.getToolbar().addCommandToOverflowMenu("Ajouter", null, ev -> {
-           new AjoutPubliciteForm(this).show();
+          //new AjoutPubliciteForm(this).show();
         });
                      this.getToolbar().addCommandToOverflowMenu("Stat", null, ev -> {
      new StatForm().createPieChartForm("Pubs", new ServicePublicite().findAllStat());
@@ -113,7 +113,7 @@ public class PubliciteForm extends Form {
         f2.add(imge2);
            
              f2.getToolbar().addCommandToOverflowMenu("back", null, ev -> {
-           new MyApplication().start();
+           new Brainovationuser(theme,"telnet20@gmail.com").show();
         });      
          
  f2.show();
