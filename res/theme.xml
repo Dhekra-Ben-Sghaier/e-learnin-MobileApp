@@ -8,4 +8,7 @@
     <image name="arrow.png"  />
     <image name="image.jpg"  />
    
+    <image name="details.png"  />
+    <image name="payer.png"  />
+    
 </resource>

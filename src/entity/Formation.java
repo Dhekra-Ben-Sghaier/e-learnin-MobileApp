@@ -23,6 +23,15 @@ public class Formation {
     
     public Formation() {
     }
+
+    public Formation(String titre, String description, float prix, String difficulte, String cours, String image) {
+        this.titre = titre;
+        this.description = description;
+        this.prix = prix;
+        this.difficulte = difficulte;
+        this.cours = cours;
+        this.image = image;
+    }
     
   
     public Formation(int id, String titre, String description, float prix, String difficulte, String cours) {
@@ -80,19 +89,19 @@ public class Formation {
 
  
 
-    public String getcours() {
+    public String getCours() {
         return cours;
     }
 
-    public void setcours(String cours) {
+    public void setCours(String cours) {
         this.cours = cours;
     }
 
-    public String getimage() {
+    public String getImage() {
         return image;
     }
 
-    public void setimage(String image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -104,7 +113,7 @@ public class Formation {
         return id;
     }
 
-    public String gettitre() {
+    public String getTitre() {
         return titre;
     }
 
@@ -124,7 +133,7 @@ public class Formation {
         this.id = id;
     }
 
-    public void settitre(String titre) {
+    public void setTitre(String titre) {
         this.titre = titre;
     }
 
